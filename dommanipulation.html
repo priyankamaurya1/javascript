@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #header{
+    width: 100%;
+    height: 100px;
+    background-color: #04f2f2;
+    justify-content: baseline;
+    text-align: center;
+    padding-top: 1%;
+    margin: 0;
+}
+body{
+    background-color: #00ffff;
+    margin: 0px;
+}
+.blog-list {
+list-style: none;
+margin: 40;
+padding: 40;
+background-color: #f0f8ff;
+}
+
+.blog-post {
+border-bottom: 1px solid #ccc;
+padding: 10px;
+}
+
+.blog-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.blog-title {
+font-size: 30px;
+margin: 0;
+}
+
+.blog-date {
+margin: 0;
+font-weight: bold;
+}
+
+.blog-content {
+margin: 0;
+line-height: 1.5;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header">
+    <h1>My Blogs</h1>
+    </div>
+    <ul class="blog-list"></ul>
+    <script>
+     
+     const blogData = [
+    {
+      title: 'First Blog Post',
+      date: 'January 1, 2022',
+      content: 'this is content of the first blog page.'
+    },
+    {
+      title: 'Second Blog Post',
+      date: 'February 1, 2022',
+      content: 'This is the content of the second blog post.'
+    },
+    {
+      title: 'Third Blog Post',
+      date: 'March 1, 2022',
+      content:'This is the content of the third blog post.'
+    }
+  ];
+ function addBlog(title,date,content){
+       const div1= document.createElement("div");
+       div1.className ="blog-post";
+
+       const div2= document.createElement("div");
+       div2.className ="blog-header";
+
+      const h2tag= document.createElement("h2");
+       h2tag.className ="blog-title";
+       h2tag.textContent= title;
+
+       const ptag1= document.createElement("p");
+       ptag1.className ="blog-date";
+       ptag1.textContent = date;
+
+       const ptag= document.createElement("p");
+       ptag.className ="blog-content";
+       ptag.textContent = content;
+
+       div2.appendChild(h2tag)
+       div2.appendChild(ptag1)
+       div1.appendChild(div2)   
+       div1.appendChild(ptag)
+      
+ 
+      const listItem = document.createElement("li");
+      listItem.appendChild(div1);
+ 
+      document.querySelector(".blog-list").appendChild(listItem);
+ }
+
+ blogData.map(blog => {
+      addBlog(blog.title, blog.date, blog.content);
+});
+      
+     
+     
+     
+
+      
+      </script>  
+</body>
+</html>
